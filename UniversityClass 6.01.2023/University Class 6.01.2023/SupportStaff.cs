@@ -11,8 +11,13 @@ namespace University_Class_6._01._2023
         public string Position { get; set;}
         public string Responsibilities { get; set;}
 
-        public SupportStaff(Person person, int taxID, string position, string responsibilities) 
-            : base(person, taxID)
+        public SupportStaff
+            (Person person, 
+            int taxId, 
+            string position, 
+            string responsibilities) 
+            : base(person, taxId)
+
         {
         Position = position;
         Responsibilities= responsibilities;
@@ -20,7 +25,7 @@ namespace University_Class_6._01._2023
 
         public override string GetOficialDuties()     
         {
-            return Position + " - " + Responsibilities;
+            return $"{Position} - {Responsibilities}";
         }
     }
 }

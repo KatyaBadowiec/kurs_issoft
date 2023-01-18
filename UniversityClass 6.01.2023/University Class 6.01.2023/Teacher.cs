@@ -10,15 +10,15 @@ namespace University_Class_6._01._2023
     {
         public Course TeacherCourse { get; set; }
 
-        public Teacher(Person person, int taxID, Course course)
-            : base(person, taxID)
+        public Teacher(Person person, int taxId, Course course)
+            : base(person, taxId)
         {
             TeacherCourse = course;
         }
 
         public override string GetOficialDuties()     
         {
-            return "Teaching " + TeacherCourse.CourseName + "(" + TeacherCourse.DescriptionCourse + ")";
+            return $"Teaching {TeacherCourse.CourseName} ({TeacherCourse.DescriptionCourse})";
         }
     }
 }

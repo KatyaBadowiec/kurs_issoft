@@ -11,8 +11,8 @@ namespace University_Class_6._01._2023
         public string AcademicDegree { get; set; }
         public string AcademicTitle { get; set; }
 
-        public Degree_Teacher(string academicDegree, string academicTitle, Person person, int taxID, Course course) 
-            : base (person, taxID, course)
+        public Degree_Teacher(string academicDegree, string academicTitle, Person person, int taxId, Course course) 
+            : base (person, taxId, course)
         {
         AcademicDegree = academicDegree;
         AcademicTitle = academicTitle;
