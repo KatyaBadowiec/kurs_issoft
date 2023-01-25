@@ -15,7 +15,20 @@
         {
             return $"Room. Assignment: {Assignment}, number: {RoomNumber}";
         }
-    }
+
+        public override bool Equals(object? obj)
+        {
+            if (obj == null) return false;
+            Room other = obj as Room;
+
+            if (this.Assignment != other.Assignment)
+                return false;
+            if (this.RoomNumber != other.RoomNumber)
+                return false;
+
+            return true;
+        }
+    } 
 }
 
  

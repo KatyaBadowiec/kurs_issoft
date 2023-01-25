@@ -4,8 +4,8 @@
     {
         public string RectorDegree { get; set; }
 
-        public Rector(string employeeName, string employeeDegree, string rectorDegree)
-            : base(employeeName, employeeDegree)
+        public Rector(string employeeName, string employeeDegree, int taxId, string rectorDegree)
+            : base(employeeName, employeeDegree, taxId)
         {
             RectorDegree = rectorDegree;
         }
