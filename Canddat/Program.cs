@@ -4,7 +4,7 @@ Address address1 = new("Minsk", "Gebki", 58, 10);
 Person person1 = new("Valentina", "Petrova", address1);
 SubjectScore[] subjscore1 = new SubjectScore[]
 {
-    new ("mathematic", 350),
+    new ("mathematic", 360),
     new ("literatura", 400),
     new ("bialogy", 390)
 };
@@ -14,7 +14,7 @@ Address address2 = new("Minsk", "Grushewskaja", 136, 15);
 Person person2 = new("Inga", "Gering", address2);
 SubjectScore[] subjscore2 = new SubjectScore[]
 {
-    new ("mathematic", 360),
+    new ("mathematic", 380),
     new ("literatura", 300),
     new ("bialogy", 370)
 };
@@ -24,7 +24,7 @@ Address address3 = new("Milan", "Prjamaja", 23, 24);
 Person person3 = new("Magda", "Fox", address3);
 SubjectScore[] subjscore3 = new SubjectScore[]
 {
-    new ("mathematic", 330),
+    new ("mathematic", 370),
     new ("literatura", 340),
     new ("bialogy", 290)
 };
@@ -82,7 +82,7 @@ foreach (var currentCandidate in candidates)
     }
 }
 
-Console.WriteLine($"Person '{candidateWithMaxScore.FirstName} {candidateWithMaxScore.LastName}' has " +
+Console.WriteLine($"Person '{candidateWithMaxScore?.FirstName} {candidateWithMaxScore?.LastName}' has " +
     $"max score '{maxScore}' in {subjectToCheck}.");
 
 
