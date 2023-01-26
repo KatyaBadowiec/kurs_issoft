@@ -1,22 +1,26 @@
 ﻿using UniversityProject;
 
-Rector rector = new Rector("Kinga Kniga", "Doctor sciences PhD", "Professor");
+Rector rector = new Rector("Kinga Kniga", "Doctor sciences PhD", 2230, "Professor");
 Address universityLegalAddress = new Address("Minsk", "Prityckogo", 17);
 
-Employee employee1 = new ("Vasilij Pupkin", "Teacher");
-Employee employee2 = new ("Sasha Pushkin", "Teacher");
-Employee employee3 = new ("Ivan Durak", "Cleaner");
-Employee employee4 = new ("Ivan Carevich", "Securety");
-Employee employee5 = new ("Alex Popovich", "Driver");
+Employee employee1 = new ("Vasilij Pupkin", "Teacher", 1233);
+Employee employee2 = new ("Sasha Pushkin", "Teacher", 1234);
+Employee employee3 = new ("Ivan Durak", "Cleaner", 1236);
+Employee employee4 = new ("Ivan Carevich", "Securety", 1237);
+Employee employee5 = new ("Alex Popovich", "Driver", 1239);
+Employee employee6 = new("Maxim Fox", "Teacher", 1355);
 
-List<Employee> employees = new List<Employee> 
+
+List<Employee> employees = new List<Employee>
 {
     employee1,
     employee2,
     employee3,
     employee4,
-    employee5
+    employee5,
+    employee6
 };
+
 
 /* Create building: univCorpus1 */
 Room univCorpus1room1 = new Room("Laboratory", 23);
@@ -69,18 +73,28 @@ var pedUniversityBuidings = new List<Building>
 };
 
 // create University
-var pedUniversity = new University(rector, universityLegalAddress, employees, pedUniversityBuidings);
+var pedUniversity = new University(rector, universityLegalAddress, pedUniversityBuidings);
 
-Console.WriteLine($"University rector: {pedUniversity.Rector.GetInfo()}");
-Console.WriteLine($"University legal address: {pedUniversity.LegalAddress.GetInfo()}");
-Console.WriteLine("University Employees:");
+pedUniversity.AddEmloyee(employee1);
+pedUniversity.AddEmloyee(employee2);
+pedUniversity.AddEmloyee(employee3);
+pedUniversity.AddEmloyee(employee4);
+pedUniversity.AddEmloyee(employee5);
+pedUniversity.AddEmloyee(employee6);
+
+Console.WriteLine($"\nUniversity rector: {pedUniversity.Rector.GetInfo()}");
+Console.WriteLine($"\nUniversity legal address: {pedUniversity.LegalAddress.GetInfo()}");
+Console.WriteLine("\nUniversity Employees:");
+
 foreach (Employee employee in pedUniversity.Employees)
 {
     Console.WriteLine(employee.GetInfo());
 }
-Console.WriteLine("University Buildings:");
+Console.WriteLine("\nUniversity Buildings:");
+
 foreach (var building in pedUniversity.Buildings)
 {
+    Console.WriteLine();
     Console.WriteLine(building.GetInfo());
     foreach (var room in building.Rooms )
     {
@@ -88,20 +102,8 @@ foreach (var building in pedUniversity.Buildings)
     }
 }
 
+var corus1_is_corpus2 = univCorpus1.Equals(univCorpus2);
+Console.WriteLine($"Corpus 1 equals corpus 2: {corus1_is_corpus2}.");
 
-/*
 
-Address address2 = new Address("Minsk, Pushkna,26");
 
-Address[] addresses = new Address[] 
-{
-    address1, 
-    address2 
-};
-Console.WriteLine("University addresses: ");
-for (int index = 0;index < addresses.Length; index++)
-{
-    Address address= addresses[index];
-    Console.WriteLine(address.GetInfo());
-}
-*/
