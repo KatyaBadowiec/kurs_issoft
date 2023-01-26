@@ -82,10 +82,6 @@ pedUniversity.AddEmloyee(employee4);
 pedUniversity.AddEmloyee(employee5);
 pedUniversity.AddEmloyee(employee6);
 
-if (rector != null)
-
-
-/**/
 Console.WriteLine($"\nUniversity rector: {pedUniversity.Rector.GetInfo()}");
 Console.WriteLine($"\nUniversity legal address: {pedUniversity.LegalAddress.GetInfo()}");
 Console.WriteLine("\nUniversity Employees:");
@@ -107,7 +103,7 @@ foreach (var building in pedUniversity.Buildings)
 }
 
 var corus1_is_corpus2 = univCorpus1.Equals(univCorpus2);
-Console.WriteLine(corus1_is_corpus2);
+Console.WriteLine($"Corpus 1 equals corpus 2: {corus1_is_corpus2}.");
 
 
 

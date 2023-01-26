@@ -18,27 +18,11 @@
             Buildings = universityBuildings;
             Employees = new List<Employee>();
         }
-        /*
-        public void AddEmloyee(Employee newEmployee)
-        {
-            Employees.Add(newEmployee);
-        }
-        */
+
         public virtual string GetOficialDuties()
         {
             return "";
         }
-
-       /* public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            Employee other = obj as Employee;
-
-            if (this.newEmployees != other.Employees)
-                return false;
-
-            return true;
-        }*/
 
         public void AddEmloyee(Employee employee)
         {
