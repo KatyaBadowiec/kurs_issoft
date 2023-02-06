@@ -26,20 +26,10 @@
 
         public void AddEmloyee(Employee employee)
         {
-            bool sameEmpFound = false;
-            foreach (Employee emp in Employees)
-            {
-                if (emp.Equals(employee))
-                {
-                    sameEmpFound = true;
-                    break;
-                }
+            if (!Employees.Contains(employee)) 
+            { 
+                Employees.Add(employee); 
             }
-
-            if (!sameEmpFound)
-            {
-                Employees.Add(employee);
-            } 
         }
     }
 }

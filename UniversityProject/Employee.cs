@@ -23,12 +23,13 @@
         public override bool Equals(object? obj)
         {
             if (obj == null) return false;
-            Employee other = obj as Employee;
-
-            if (this.TaxId != other.TaxId) 
-                return false;
             
-            return true;
+            if (obj is Employee other)
+            {
+                if (this.TaxId == other.TaxId)
+                    return true;
+            }
+            return false;
         }
     }
 }

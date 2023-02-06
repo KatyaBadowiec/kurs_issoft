@@ -131,7 +131,7 @@ foreach (Employee employee in flteredList)
 
 
 // 1. Выборка по первой букве имени и сортировка по TaxId
-List<Employee> filteredList = pedUniversity.Employees
+var filteredList = pedUniversity.Employees
     .Where(employee => employee.EmployeeName.StartsWith("I"))
     .OrderBy(emplo => emplo.TaxId)
     .ToList();
@@ -144,7 +144,7 @@ foreach (Employee employee in filteredList)
 }
 
 // 2. Выборка по преподаваемому предмету
-List<Employee> filteredList2 = pedUniversity.Employees
+var filteredList2 = pedUniversity.Employees
     .Where(employee => employee.EmployeeDutes == "biology")
     .OrderBy(emplo => emplo.TaxId)
     .ToList();
@@ -157,12 +157,12 @@ foreach (Employee employee in filteredList2)
 }
 
 // 3. TaxId и должностные обяанности
-List<Employee> filteredList3 = pedUniversity.Employees;
+var filteredList3 = pedUniversity.Employees.Select(emp => $"{emp.EmployeeDegree} - {emp.TaxId}");
 Console.WriteLine("\nEmployee degree and TaxID:");
 
-foreach (Employee employee in filteredList3)
+foreach (var duty in filteredList3)
 {
-    Console.WriteLine(employee.EmployeeDegree + " - " +employee.TaxId);
+    Console.WriteLine(duty);
 }
 
 // 4. Сортировка по номеру комнаты
@@ -174,7 +174,7 @@ var filteredList5 = pedUniversityBuidings
 
 Console.WriteLine($"\nRooms number {roomNr}");
 
-foreach (string buildingAddress in filteredList5)
+foreach (var buildingAddress in filteredList5)
 {
     Console.WriteLine(buildingAddress);
 }
@@ -182,21 +182,19 @@ Console.WriteLine();
 
 // 5. Выборка по максимальному коллчеству комнат.
 var buildingWithMaxRooms = pedUniversityBuidings
-    .OrderByDescending(build => build.Rooms.Count)
-    .First();
+    .MaxBy(build => build.Rooms.Count);
 
 Console.WriteLine("\nAddress of building with max number of rooms:");
-Console.WriteLine(buildingWithMaxRooms.BuldingAddress.GetInfo());
-Console.WriteLine($"rooms count: {buildingWithMaxRooms.Rooms.Count}.");
+Console.WriteLine(buildingWithMaxRooms?.BuldingAddress.GetInfo());
+Console.WriteLine($"rooms count: {buildingWithMaxRooms?.Rooms.Count}.");
 
 // 6. Выборка по имени
 var employeeWithMostOftenName = pedUniversity.Employees
     .GroupBy(x => x.EmployeeName)
     .OrderByDescending(gr => gr.Count())
-    .Select(x => new { EmployeeName = x.Key, Count = x.Count() })
     .First();
 
 Console.WriteLine("\nEmployee with max name occurances:");
-Console.WriteLine(employeeWithMostOftenName.EmployeeName);
-Console.WriteLine($"names count: {employeeWithMostOftenName.Count}.");
+Console.WriteLine(employeeWithMostOftenName.Key);
+Console.WriteLine($"names count: {employeeWithMostOftenName.Count()}.");
 
