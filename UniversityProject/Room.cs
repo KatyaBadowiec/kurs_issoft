@@ -5,10 +5,10 @@
         public string Assignment { get; set; }
         public int RoomNumber { get; set; }
 
-        public Room(string assigment, int roomNamber)
+        public Room(string assigment, int roomNumber)
         {
             Assignment = assigment;
-            RoomNumber = roomNamber;
+            RoomNumber = roomNumber;
         }
 
         public override string GetInfo()
