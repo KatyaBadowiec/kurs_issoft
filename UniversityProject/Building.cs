@@ -19,32 +19,25 @@
         public override bool Equals(object? obj)
         {
             if (obj == null) return false;
-            Building other = obj as Building;
 
-            if (!this.BuldingAddress.Equals(other.BuldingAddress))
+            if (obj is not Building other)
+            {
+                return false;
+            }
+
+            if (!BuldingAddress.Equals(other.BuldingAddress))
                 return false;
 
-            if (this.Rooms.Count != other.Rooms.Count)
+            if (Rooms.Count != other.Rooms.Count)
                 return false;
 
             foreach (var room in Rooms)
             {
-                bool sameRoomFound = false;
-                foreach (var roomOther in other.Rooms)
-                {
-                    if (room.Assignment == roomOther.Assignment &&
-                        room.RoomNumber == roomOther.RoomNumber)
-                    {
-                        sameRoomFound = true;
-                        break;
-                    }
-                }
-
-                if (!sameRoomFound)
+                if (!other.Rooms.Contains(room))
                     return false;
             }
-
             return true;
         }
     }
 }
+

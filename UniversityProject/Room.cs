@@ -5,10 +5,10 @@
         public string Assignment { get; set; }
         public int RoomNumber { get; set; }
 
-        public Room(string assigment, int roomNamber)
+        public Room(string assigment, int roomNumber)
         {
             Assignment = assigment;
-            RoomNumber = roomNamber;
+            RoomNumber = roomNumber;
         }
 
         public override string GetInfo()
@@ -19,14 +19,14 @@
         public override bool Equals(object? obj)
         {
             if (obj == null) return false;
-            Room other = obj as Room;
-
-            if (this.Assignment != other.Assignment)
-                return false;
-            if (this.RoomNumber != other.RoomNumber)
-                return false;
-
-            return true;
+            
+            if (obj is Room other)
+            {
+                if (Assignment != other.Assignment || RoomNumber != other.RoomNumber)
+                    return false;
+                    return true;
+            }
+            return false;
         }
     } 
 }
